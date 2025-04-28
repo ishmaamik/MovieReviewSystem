@@ -1,0 +1,28 @@
+/* Slider wrapper */
+.slider-wrapper {
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  /* Product container - now with animation */
+  .product-container {
+    display: flex;
+    gap: 40px;
+    padding: 80;
+    width: max-content; /* Allow container to expand beyond viewport */
+    animation: scroll 60s linear infinite;
+    will-change: transform;
+    margin-top: 64px;
+  }
+  
+  /* Keyframes for smooth scrolling */
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%); /* Move by half of the container width */
+    }
+  }

@@ -5,6 +5,7 @@ import './App.css'
 import Navbar from './components/Navbar'
 import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from './context/ThemeContext'
+import Body from './pages/Body'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -14,6 +15,7 @@ function App() {
       <BrowserRouter>
         <ThemeProvider>
           <Navbar />
+          <Body/>
         </ThemeProvider>
       </BrowserRouter>
     </>
