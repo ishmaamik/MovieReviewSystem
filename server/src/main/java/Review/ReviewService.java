@@ -1,5 +1,6 @@
 package Review;
 
+import User.UserModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,5 +14,9 @@ public class ReviewService {
 
     public List<ReviewModel> findAllReviews(){
         return reviewRepo.findAll();
+    }
+
+    public List<ReviewModel> getReviewsByUser(UserModel user) {
+        return reviewRepo.findByUser(user);
     }
 }

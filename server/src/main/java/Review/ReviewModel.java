@@ -1,10 +1,12 @@
 package Review;
 
+import User.UserModel;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
 import java.time.LocalDateTime;
 
@@ -14,6 +16,9 @@ import java.time.LocalDateTime;
 public class ReviewModel {
     @Id
     private ObjectId reviewId;
+
+    @DocumentReference
+    private UserModel user;
 
     private String review;
 
@@ -54,5 +59,13 @@ public class ReviewModel {
 
     public void setUpdated(LocalDateTime updated) {
         this.updated = updated;
+    }
+
+    public UserModel getUser() {
+        return user;
+    }
+
+    public void setUser(UserModel user) {
+        this.user = user;
     }
 }
