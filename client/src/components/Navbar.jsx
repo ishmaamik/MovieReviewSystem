@@ -14,32 +14,32 @@ const links = [
   {
     id: 2,
     title: "Popular TV Shows",
-    url: "/LipiKotha",
+    url: "/tvShows",
   },
   {
     id: 3,
     title: "Popular Movies",
-    url: "/EkusheAI",
+    url: "/movies",
   },
   {
     id: 4,
     title: "My Profile",
-    url: "/collab",
+    url: "/profile/:id",
   },
   {
     id: 5,
     title: "WatchList",
-    url: "/blog",
+    url: "/watchList",
   },
   {
     id: 6,
     title: "FavoriteList",
-    url: "/protected",
+    url: "/favoriteList",
   },
   {
     id: 7,
     title: "MyReviews",
-    url: "/pdf",
+    url: "/reviews",
   },
   
 ];
