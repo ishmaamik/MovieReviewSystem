@@ -1,0 +1,42 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    
+    position: relative;
+    height: 120px;
+  }
+  .logo {
+    font-weight: bold;
+    font-size: 36px;
+    padding-right: 20px;
+    background: linear-gradient(
+      90deg, 
+      #fa4343 0%, 
+      #fb889b 33%, 
+      #2ec479 66%, 
+      #fa4343 100%
+    ); /* Smooth stops for colors */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientAnimation 20s linear infinite;
+    background-size: 400% 100%; /* Extend background size further for smoother flow */
+  }
+  
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 300% 50%; /* Slow and smooth one-directional movement */
+    }
+  }
+  
+  
+  .links {
+    font-size: large;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
