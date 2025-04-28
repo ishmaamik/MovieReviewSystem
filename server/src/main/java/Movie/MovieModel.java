@@ -1,9 +1,11 @@
 package Movie;
 
+import Review.ReviewModel;
 import lombok.*;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
 import java.util.List;
 
@@ -22,6 +24,9 @@ public class MovieModel {
     private String poster;
     private List<String> backdrops;
     private List<String> genres;
+
+    @DocumentReference
+    private List<ReviewModel> reviews;
 
     // Getter and Setter for 'id'
     public ObjectId getId() {

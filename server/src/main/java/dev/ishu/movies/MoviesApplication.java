@@ -6,8 +6,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"Movie"})
-@EnableMongoRepositories(basePackages = {"Movie"})
+@ComponentScan(basePackages = {"Movie", "Review"})
+@EnableMongoRepositories(basePackages = {"Movie", "Review"})
 public class MoviesApplication {
 
 	public static void main(String[] args) {
