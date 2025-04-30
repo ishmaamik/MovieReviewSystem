@@ -24,7 +24,7 @@ const links = [
   {
     id: 4,
     title: "My Profile",
-    url: "/profile/:id",
+    url: "/MyProfile",
   },
   {
     id: 5,

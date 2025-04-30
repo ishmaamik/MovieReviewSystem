@@ -1,0 +1,31 @@
+
+.container {
+overflow: hidden;
+height: 600px;
+width: 400px;
+margin-left: 40px;
+border-radius: 20px;
+background-color: rgb(252, 200, 70);
+position: absolute;
+}
+
+.circle {
+    margin-left: 30%;
+    margin-top: 40%;
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    position: relative;
+    color: white;
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+}
+
+.centered {
+    height: 1000px;
+    width: 1000px;
+    margin-left: 10%;
+    margin-top: 10%;
+    
+}

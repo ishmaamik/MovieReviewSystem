@@ -1,0 +1,15 @@
+
+.container {
+    overflow: hidden;
+    height: 600px;
+    width: 1000px;
+    margin-left: 470px;
+    opacity: 1;
+    border-radius: 20px;
+    background-color: rgb(252, 200, 70);
+    position: absolute;
+}
+
+.details{
+    
+}
