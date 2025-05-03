@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
-import styles from "../css/profile.module.css";
-import { UserContext } from "../context/UserContext";
+import styles from "../../css/profile.module.css";
+import { UserContext } from "../../context/UserContext";
 
 
 

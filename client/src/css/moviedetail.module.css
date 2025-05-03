@@ -1,5 +1,5 @@
 .container {
-    overflow: hidden;
+    overflow-y: auto;
     height: 600px;
     width: 520px;
     margin-left: 530px;
@@ -8,12 +8,40 @@
     background-color: rgb(252, 200, 70);
     position: absolute;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: #FFD700 #f5f5f5; 
+}
+
+.container::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+
+.container::-webkit-scrollbar-track {
+    background: #f5f5f5; /* Track color */
+    border-radius: 10px;
+    margin: 15px 0;
+}
+
+.container::-webkit-scrollbar-thumb {
+    background: #FFD700; /* Your yellow brand color */
+    border-radius: 10px;
+    border: 2px solid #f5f5f5; /* Creates padding effect */
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+    background: #FFC400; /* Darker yellow on hover */
+    cursor: pointer;
+}
+
+/* Optional: Smooth transitions */
+.container::-webkit-scrollbar-thumb {
+    transition: 0.3s ease;
 }
 
 .details {
     display: block;
     font-size: 18px;
-    margin-left: 100px;
+    margin-left: 25px;
     margin-top: 20px;
     line-height: 1.8; /* Adjust line height for readability */
     color: #333; /* Dark text color for better readability */
@@ -39,7 +67,7 @@ h3 {
 .fields {
     display: block; /* Ensure it takes up full width */
     font-size: 18px;
-    margin-left: 200px;
+    margin-left: 50px;
     margin-top: 5px;
     line-height: 1.8; 
     color: #fff; /* Dark text color for better readability */
@@ -77,7 +105,7 @@ h3 {
 
  .backdrop-image {
     width: 100%; /* Make images fill their container */
-    height: 120px;
+    height: 100%;
     object-fit: cover;
   }
   
@@ -87,8 +115,8 @@ h3 {
     gap: 10px;
   }
   
-  /* Create 3-column layout */
-  .contained > * {
-    flex: 1 1 calc(33.33% - 10px); /* Account for gap */
-    max-width: calc(33.33% - 10px);
+  /* .contained > * {
+    flex: 1 1 calc(50% - 10px);
+    max-width: calc(50% - 10px);
   }
+   */

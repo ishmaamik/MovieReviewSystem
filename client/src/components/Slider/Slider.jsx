@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
-import styles from "../css/slider.module.css";
+import styles from "../../css/slider.module.css";
 
 const Slider = () => {
   const [products, setProducts] = useState([]);

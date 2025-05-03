@@ -1,8 +1,8 @@
 import {Link} from "react-router-dom";
 import React, { useContext, useEffect, useState } from "react";
-import styles from "../css/navbar.module.css";
-import DarkModeToggle from "./Mode";
-import { UserContext } from "../context/UserContext";
+import styles from "../../css/navbar.module.css";
+import DarkModeToggle from "../Mode";
+import { UserContext } from "../../context/UserContext";
 
 
 const Navbar = () => {

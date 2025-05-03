@@ -1,4 +1,4 @@
-import styles from "../css/friends.module.css";
+import styles from "../../css/friends.module.css";
 
 
 

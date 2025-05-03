@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react"
-import DetailsBar from "../components/UserProfile/DetailsBar"
-import FriendsBar from "../components/UserProfile/FriendsBar"
-import ProfileBar from "../components/UserProfile/ProfileBar"
+import MovieDetails from "../components/MovieProfile/MovieDetails"
+import MovieReviews from "../components/MovieProfile/MovieReviews"
+import MovieBar from "../components/MovieProfile/MovieBar"
 import styles from "../css/profile.module.css"
 import { useParams } from "react-router-dom"
-import { UserProvider } from "../context/UserContext"
+import { MovieProvider } from "../context/MovieContext"
 
-const MyProfile=()=>{
+const MovieProfile=()=>{
     const [isVisible, setIsVisible] = useState(false)
-    const {userName}= useParams()
+    const {movieURL}= useParams()
 
     useEffect(() => {
       // Set isVisible to true after the component has mounted to trigger the fade-in transition
@@ -16,15 +16,15 @@ const MyProfile=()=>{
     }, []);
     return(
         <>
-        <UserProvider userName={userName}>
+        <MovieProvider movieURL={movieURL}>
          <div className={`${styles.profile} ${isVisible ? styles.visible : ""}`}>
-            <ProfileBar/>
-            <DetailsBar/>
-            <FriendsBar/>
+            <MovieBar/>
+            <MovieDetails/>
+            <MovieReviews/>
         </div>
-        </UserProvider>
+        </MovieProvider>
         </>
     )
 }
 
-export default MyProfile
+export default MovieProfile
