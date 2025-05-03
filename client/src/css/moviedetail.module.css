@@ -51,6 +51,8 @@
     flex-grow: 0;
 }
 
+
+
 .details span {
     display: inline-block;
     margin-right: 20px; /* Space between label and value */
@@ -73,8 +75,10 @@ h3 {
     color: #fff; /* Dark text color for better readability */
     margin-bottom: 5px; /* Increase space between items */
     font-weight: 500; /* Make the font weight more prominent */
-    flex-shrink: 0; 
-    flex-grow: 0;
+    flex-shrink: 0;
+    flex-grow: 1; /* Take remaining space */
+  word-break: break-word; /* Handle long text */ 
+    
 }
 
 .fields:hover{
@@ -120,3 +124,9 @@ h3 {
     max-width: calc(50% - 10px);
   }
    */
+
+   .storyline-text {
+    line-height: 1.6;
+    font-size: 16px;
+    white-space: pre-line; /* Preserve paragraph breaks */
+  }

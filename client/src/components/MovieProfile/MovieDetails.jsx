@@ -8,6 +8,11 @@ const MovieDetails = () => {
   const list = [
     { "Trailer": <a href={movie.trailerLink} target="_blank" rel="noopener noreferrer">Watch Trailer</a> },
     { "Genres": movie.genres?.join(", ") },
+    {"Storyline": 
+      <div className={styles["storyline-text"]}>
+        {movie.storyline}
+      </div>
+    },
     { 
         "Backdrops": 
           <div className={styles["contained"]}>
