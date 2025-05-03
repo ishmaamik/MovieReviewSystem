@@ -11,6 +11,7 @@ export const UserProvider=({children, userName})=>{
         const data= await fetch(`http://localhost:8080/api/users/${userName}`)
         const json= await data.json()
         setUser(json)
+        localStorage.setItem("user", JSON.stringify(json))
       }
     
       useEffect(()=>{
