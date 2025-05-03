@@ -10,7 +10,11 @@ public class UserService {
     @Autowired
     private UserRepository userRepo;
 
-    public Optional<UserModel> getUser(String userName){
+    public UserModel getUser(String userName){
         return userRepo.findUserByUserName(userName);
     }
+    public void saveUser(UserModel user) {
+        userRepo.save(user); // Save the updated user back to the database
+    }
+
 }

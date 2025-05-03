@@ -18,6 +18,51 @@ public class UserModel {
     private String password;
     private List<String> watchList;
     private List<String> favoriteList;
+    private String favoriteActor;
+    private String favoriteActress;
+    private String favoriteMovie;
+    private String favoriteGenre;
+    private String email;
+
+    public String getFavoriteActor() {
+        return favoriteActor;
+    }
+
+    public void setFavoriteActor(String favoriteActor) {
+        this.favoriteActor = favoriteActor;
+    }
+
+    public String getFavoriteActress() {
+        return favoriteActress;
+    }
+
+    public void setFavoriteActress(String favoriteActress) {
+        this.favoriteActress = favoriteActress;
+    }
+
+    public String getFavoriteMovie() {
+        return favoriteMovie;
+    }
+
+    public void setFavoriteMovie(String favoriteMovie) {
+        this.favoriteMovie = favoriteMovie;
+    }
+
+    public String getFavoriteGenre() {
+        return favoriteGenre;
+    }
+
+    public void setFavoriteGenre(String favoriteGenre) {
+        this.favoriteGenre = favoriteGenre;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public ObjectId getUserId() {
         return userId;
