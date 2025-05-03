@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import styles from "../css/profile.module.css";
+import { UserContext } from "../context/UserContext";
 
 
 
 const DetailsBar = () => {
-  const [user, setUser]= useState({})
+  const {user}= useContext(UserContext)
 
   const list = [
     { "Username": user.userName },
@@ -15,16 +16,6 @@ const DetailsBar = () => {
     { "Favorite Genre": user.favoriteGenre },
   ];
 
-  const fetchData=async()=>{
-    const data= await fetch("http://localhost:8080/api/users/ishu")
-    const json= await data.json()
-    setUser(json)
-  }
-
-  useEffect(()=>{
-    fetchData()  
-  }, [])
-
   return (
     <div className={styles["container"]}>
       
@@ -34,10 +25,10 @@ const DetailsBar = () => {
           const[key, value]= Object.entries(p)[0]
           return (
             <>
-            <span key={index} className={styles["details"]}>
+            <span  className={styles["details"]}>
               {key}
             </span>
-            <span key={index} className={styles["fields"]}>
+            <span  className={styles["fields"]}>
             {value}
           </span>
           </>

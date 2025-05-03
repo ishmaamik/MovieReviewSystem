@@ -1,11 +1,14 @@
-
+import { useContext, useEffect, useState } from "react";
 import styles from "../css/profilebar.module.css"
 import image from "../assets/User.jpg"
+import { UserContext } from "../context/UserContext";
 const ProfileBar=()=>{
+    const {user}= useContext(UserContext)
+    
     return(
         <>
             <div className={styles["container"]}>
-                <img src={image} className={styles["circle"]}/>
+                <img src={user.image} className={styles["circle"]}/>
                 <div className={styles["centered"]}>
                     <h3>Ishmaam Iftekhar</h3>
                     <h3>Join Date: 30/04/2025</h3>

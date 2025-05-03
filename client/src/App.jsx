@@ -8,6 +8,7 @@ import { ThemeProvider } from './context/ThemeContext'
 import Body from './pages/Body'
 import Footer from './components/Footer'
 import MyProfile from './pages/MyProfile'
+import { UserProvider } from './context/UserContext'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -16,16 +17,17 @@ function App() {
     <>
       <BrowserRouter>
       
-        
+        <UserProvider>
       
         <ThemeProvider>
           <Navbar />
           <Routes>
-          <Route path="/MyProfile" element={<MyProfile/>}/>
+          <Route path="/MyProfile/:userName" element={<MyProfile/>}/>
           <Route path="/" element={<Body/>}/>
         </Routes>
           <Footer/>
         </ThemeProvider>
+        </UserProvider>
       </BrowserRouter>
     </>
   )

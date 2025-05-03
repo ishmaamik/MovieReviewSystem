@@ -24,6 +24,16 @@ public class UserModel {
     private String favoriteGenre;
     private String email;
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    private String image;
+
     public String getFavoriteActor() {
         return favoriteActor;
     }
