@@ -25,7 +25,7 @@ public class MovieController {
     }
 
     @GetMapping("/title/{title}")
-    public ResponseEntity<Optional<MovieModel>> getMovieByTitle(@PathVariable String title){
-        return new ResponseEntity<Optional<MovieModel>>(movieService.findMovieByTitle(title), HttpStatus.OK);
+    public ResponseEntity<MovieModel> getMovieByTitle(@PathVariable String title){
+        return new ResponseEntity<MovieModel>(movieService.findMovieByTitle(title), HttpStatus.OK);
     }
 }

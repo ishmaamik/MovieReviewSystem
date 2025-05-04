@@ -1,12 +1,15 @@
 package User;
 
+import Movie.MovieModel;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
 import java.util.List;
+import java.util.Optional;
 
 @Document(collection = "users")
 @NoArgsConstructor
@@ -16,8 +19,10 @@ public class UserModel {
     private ObjectId userId;
     private String userName;
     private String password;
-    private List<String> watchList;
-    private List<String> favoriteList;
+    @DocumentReference
+    private List<MovieModel> watchList;
+    @DocumentReference
+    private List<MovieModel> favoriteList;
     private String favoriteActor;
     private String favoriteActress;
     private String favoriteMovie;
@@ -101,20 +106,24 @@ public class UserModel {
     }
 
     // Getter and Setter for watchList
-    public List<String> getWatchList() {
+    public List<MovieModel> getWatchList() {
         return watchList;
     }
 
-    public void setWatchList(List<String> watchList) {
+    public void setWatchList(List<MovieModel> watchList) {
         this.watchList = watchList;
     }
 
+    public void addWatchList(MovieModel movie) {
+        watchList.add(movie);
+    }
+
     // Getter and Setter for favoriteList
-    public List<String> getFavoriteList() {
+    public List<MovieModel> getFavoriteList() {
         return favoriteList;
     }
 
-    public void setFavoriteList(List<String> favoriteList) {
+    public void setFavoriteList(List<MovieModel> favoriteList) {
         this.favoriteList = favoriteList;
     }
 }
