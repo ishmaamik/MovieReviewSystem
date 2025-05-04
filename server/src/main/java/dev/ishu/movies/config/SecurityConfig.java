@@ -1,8 +1,8 @@
-
 package dev.ishu.movies.config;
 
 import UserAuth.CustomUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -10,25 +10,32 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Component;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 
-@Component
+import java.util.Arrays;
+
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter{
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private CustomUserDetails userDetails;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers("/api/movies/**").permitAll()
-                .anyRequest().authenticated()
+        http
+                .authorizeRequests()
+                .antMatchers("/api/movies/**").permitAll()  // Allow movies API access without authentication
+                .antMatchers("/api/v1/authenticate").permitAll()  // Allow /api/authenticate endpoint without authentication
+                .antMatchers("/api/users/register").permitAll()
+                .anyRequest().authenticated()  // All other requests require authentication
                 .and()
-                .csrf().disable()
-                .httpBasic().disable();
-
-
+                .httpBasic()  // Enable HTTP Basic authentication
+                .and()
+                .csrf().disable()  // Disable CSRF (optional)
+                .cors().and();  // Enable CORS
     }
 
     @Override
@@ -36,7 +43,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         auth.userDetailsService(userDetails).passwordEncoder(passwordEncoder());
     }
 
-    public PasswordEncoder passwordEncoder(){
+    public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public CorsFilter corsFilter() {
+        CorsConfiguration corsConfig = new CorsConfiguration();
+        corsConfig.setAllowedOrigins(Arrays.asList("http://localhost:5173"));  // Your frontend URL
+        corsConfig.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));  // Include OPTIONS method for preflight
+        corsConfig.setAllowedHeaders(Arrays.asList("Content-Type", "Authorization"));
+        corsConfig.setAllowCredentials(true);  // Allow cookies or credentials (if needed)
+
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", corsConfig);  // Apply CORS configuration to all endpoints
+        return new CorsFilter(source);
     }
 }

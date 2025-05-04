@@ -7,8 +7,8 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"Movie", "Review", "User", "dev.ishu.movies.config"})
-@EnableMongoRepositories(basePackages = {"Movie", "Review", "User"})
+@ComponentScan(basePackages = {"Movie", "Review", "User", "dev.ishu.movies.config", "UserAuth"})
+@EnableMongoRepositories(basePackages = {"Movie", "Review", "User", "UserAuth"})
 @CrossOrigin(origins = "*")
 public class MoviesApplication {
 

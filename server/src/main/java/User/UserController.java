@@ -6,6 +6,8 @@ import Utilities.WatchListRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -15,6 +17,7 @@ import java.util.Optional;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class UserController {
 
+    PasswordEncoder passwordEncoder= new BCryptPasswordEncoder();
     @Autowired
     private UserService userService;
     @Autowired
@@ -47,5 +50,21 @@ public class UserController {
         user.addWatchList(movieName);
         userService.saveUser(user);
         return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    @PostMapping("/register")
+    public ResponseEntity<UserModel> registerUser(@RequestBody UserModel user) {
+        if (userService.getUser(user.getUserName()) != null) {
+            // Return an error if the username already exists
+            return new ResponseEntity<UserModel>(user, HttpStatus.BAD_REQUEST);
+        }
+
+        // Hash the password before saving
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+
+        // Save the user to the database
+        userService.saveUser(user);
+
+        return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
 }

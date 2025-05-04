@@ -8,13 +8,6 @@ import { UserContext } from "../../context/UserContext";
 const Navbar = () => {
   const [user, setUser] = useState(null);  // Initially set to null
 
-  // Fetch user from localStorage on component mount
-  useEffect(() => {
-    const storedUser = localStorage.getItem("user"); // Get user from localStorage
-    if (storedUser) {
-      setUser(JSON.parse(storedUser)); // Parse the stored string back into an object
-    }
-  }, []);
 
  const links = [
   {

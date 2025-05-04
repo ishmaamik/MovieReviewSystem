@@ -10,6 +10,8 @@ import Footer from './components/Footer/Footer'
 import MyProfile from './pages/MyProfile'
 import MovieProfile from './pages/MovieProfile'
 import { UserProvider } from './context/UserContext'
+import Login from './pages/Login'
+import Register from './pages/Register'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -25,6 +27,8 @@ function App() {
           <Routes>
           <Route path="/MyProfile/:userName" element={<MyProfile/>}/>
           <Route path="/MovieProfile/:movieURL" element={<MovieProfile/>}/>
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/register" element={<Register/>}/>
           <Route path="/" element={<Body/>}/>
         </Routes>
           <Footer/>
