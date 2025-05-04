@@ -28,6 +28,15 @@ public class UserModel {
     private String favoriteMovie;
     private String favoriteGenre;
     private String email;
+    private List<String> roles;
+
+    public List<String> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<String> roles) {
+        this.roles = roles;
+    }
 
     public String getImage() {
         return image;
